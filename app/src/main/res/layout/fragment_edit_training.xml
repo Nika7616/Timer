@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context="xsss">-->
+
+<!--    <Button-->
+<!--        android:id="@+id/AddBtnEdit"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:text="изменить"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/EtSetsEdit"-->
+<!--        android:layout_width="91dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="sets"-->
+<!--        android:inputType="number"-->
+<!--        android:minHeight="48dp"-->
+<!--        android:text="2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/etRestEdit" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/EtNameEdit"-->
+<!--        android:layout_width="107dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="name"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:text="dyhyt"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etPreparationEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:hint="preparation"-->
+<!--        android:inputType="time"-->
+<!--        android:minHeight="48dp"-->
+<!--        android:text="12:14"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/EtNameEdit" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/EtTrainingEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="training      "-->
+<!--        android:inputType="time"-->
+<!--        android:minHeight="48dp"-->
+<!--        android:text="12:14"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/etPreparationEdit" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etRestEdit"-->
+<!--        android:layout_width="98dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="rest"-->
+<!--        android:inputType="time"-->
+<!--        android:text="12:14"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/EtTrainingEdit" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="xsss">
+
+    <Button
+        android:id="@+id/EditBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/EtSetsEdit"
+        android:layout_width="113dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:hint="sets"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:text="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRestSecEdit" />
+
+    <EditText
+        android:id="@+id/EtNameEdit"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName"
+        android:text="dyhyt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etPreparationSecEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:hint="preparation"
+        android:maxLength="2"
+        android:inputType="time"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toEndOf="@+id/textView2Edit"
+        app:layout_constraintTop_toBottomOf="@+id/EtNameEdit" />
+
+    <EditText
+        android:id="@+id/etPreparationMinEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:hint="preparation"
+        android:maxLength="2"
+        android:inputType="time"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView2Edit"
+        app:layout_constraintTop_toBottomOf="@+id/EtNameEdit" />
+
+    <EditText
+        android:id="@+id/EtTrainingSecEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:hint="training      "
+        android:inputType="time"
+        android:maxLength="2"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toEndOf="@+id/textView3Edit"
+        app:layout_constraintTop_toBottomOf="@+id/etPreparationSecEdit" />
+
+    <EditText
+        android:id="@+id/etTrainingMinEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:maxLength="2"
+        android:hint="training      "
+        android:inputType="time"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView3Edit"
+        app:layout_constraintTop_toBottomOf="@+id/etPreparationMinEdit" />
+
+    <EditText
+        android:id="@+id/etRestSecEdit"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:hint="rest"
+        android:maxLength="2"
+        android:inputType="time"
+        app:layout_constraintStart_toEndOf="@+id/textView4Edit"
+        app:layout_constraintTop_toBottomOf="@+id/EtTrainingSecEdit" />
+
+    <EditText
+        android:id="@+id/etRestMinEdit"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:hint="rest"
+        android:maxLength="2"
+        android:inputType="time"
+        app:layout_constraintEnd_toStartOf="@+id/textView4Edit"
+        app:layout_constraintTop_toBottomOf="@+id/etTrainingMinEdit" />
+
+    <TextView
+        android:id="@+id/textView2Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text=":"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EtNameEdit" />
+
+    <TextView
+        android:id="@+id/textView3Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=":"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2Edit" />
+
+    <TextView
+        android:id="@+id/textView4Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=":"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3Edit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

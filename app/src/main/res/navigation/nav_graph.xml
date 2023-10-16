@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.timer.presentation.Screens.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addTrainingFragment"
+            app:destination="@id/addTrainingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editTrainingFragment"
+            app:destination="@id/editTrainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTrainingFragment"
+        android:name="com.example.timer.presentation.Screens.AddTraining.AddTrainingFragment"
+        android:label="AddTrainingFragment" >
+        <action
+            android:id="@+id/action_addTrainingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTrainingFragment"
+        android:name="com.example.timer.presentation.Screens.EditTraining.EditTrainingFragment"
+        android:label="EditTrainingFragment" >
+        <action
+            android:id="@+id/action_editTrainingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.example.timer.presentation.Screens.timerFragment"
+        android:label="timerFragment" >
+        <action
+            android:id="@+id/action_timerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.timer.presentation.Screens.Splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

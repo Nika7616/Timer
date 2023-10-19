@@ -15,9 +15,9 @@
             android:name=".presentation.MainActivity"
             android:exported="true" >
             <intent-filter>
-                <action android:name="Timer" />
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="Timer" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <meta-data

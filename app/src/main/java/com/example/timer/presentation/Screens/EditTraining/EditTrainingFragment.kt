@@ -3,12 +3,13 @@ package com.example.timer.presentation.Screens.EditTraining
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.timer.R
@@ -41,20 +42,18 @@ class EditTrainingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        val bundle = arguments
+        if (bundle != null) {
+            val recieveInfo = bundle.getInt("tag")
+            Log.e("my", "------------------- $recieveInfo")
+        }
+
         val buttonEdit = view.findViewById<Button>(R.id.EditBtn)
 
         etNameEdit = view.findViewById(R.id.EtNameEdit)
 
-        etPreparationSecEdit = view.findViewById(R.id.etPreparationSecEdit)
-        etTrainingSecEdit = view.findViewById(R.id.EtTrainingSecEdit)
-        etRestSecEdit = view.findViewById(R.id.etRestSecEdit)
-
-
-        etPreparationMinEdit = view.findViewById(R.id.etPreparationMinEdit)
-        etTrainingMinEdit = view.findViewById(R.id.etTrainingMinEdit)
-        etRestMinEdit = view.findViewById(R.id.etRestMinEdit)
-
-        etSetsEdit = view.findViewById(R.id.EtSetsEdit)
+         initialization(view)
 
         viewModel.currentTrainingforEditLD.observe(viewLifecycleOwner) {
             currentId = it.id
@@ -128,6 +127,20 @@ class EditTrainingFragment : Fragment() {
         }
 
 
+    }
+    fun initialization(view: View) {
+        etNameEdit = view.findViewById(R.id.EtNameEdit)
+
+        etPreparationSecEdit = view.findViewById(R.id.etPreparationSecEdit)
+        etTrainingSecEdit = view.findViewById(R.id.EtTrainingSecEdit)
+        etRestSecEdit = view.findViewById(R.id.etRestSecEdit)
+
+
+        etPreparationMinEdit = view.findViewById(R.id.etPreparationMinEdit)
+        etTrainingMinEdit = view.findViewById(R.id.etTrainingMinEdit)
+        etRestMinEdit = view.findViewById(R.id.etRestMinEdit)
+
+        etSetsEdit = view.findViewById(R.id.EtSetsEdit)
     }
 
     fun textChangedListener (editText: EditText) {

@@ -51,6 +51,22 @@ class HomeViewModel(var app: Application) : AndroidViewModel(app) {
 
     val repository = TimerRepositoryImpl(app)
 
+    init {
+        _viewState.value = HomeViewState.enabled
+        getList()
+        _visible.value = HomeViewState.notVisibleStop
+    }
+
+    fun getList() {
+        viewModelScope.launch {
+            _viewState.postValue(HomeViewState.disabled)
+            _trainingListLD = repository.getTrainingList()
+            _viewState.postValue(HomeViewState.enabled)
+
+
+        }
+    }
+
     fun setCurrentTraining(currentTraining: TrainingModel) {
         try {
             timer.cancel()

@@ -55,25 +55,7 @@ class TrainingViewModel(var app: Application) : AndroidViewModel(app) {
     var isStoped = false
 
     var currentTimeIteration = 1
-
-
-    init {
-        _viewState.value = HomeViewState.enabled
-        getList()
-        _visible.value = HomeViewState.notVisibleStop
-    }
-
-    fun getList() {
-        viewModelScope.launch {
-            _viewState.postValue(HomeViewState.disabled)
-            _trainingListLD = repository.getTrainingList()
-            _viewState.postValue(HomeViewState.enabled)
-
-
-        }
-    }
-
-
+    
     fun startTime() {
 
         if (currentTimeIteration <= _currentTrainingLD.value!!.sets * 2 + 1 && isStoped == false) {

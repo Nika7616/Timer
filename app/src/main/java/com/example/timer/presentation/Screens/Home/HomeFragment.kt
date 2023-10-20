@@ -47,18 +47,12 @@ class HomeFragment : Fragment() {
 
         setObservers()
 
-
-        buttonAddItem.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_addTrainingFragment)
-
-        }
-
+        setupOnClickListener()
         setupSwipeListener(rv_training)
         setupClickListener()
         setupLongClickListener()
 
     }
-
 
     fun initialization(view: View) {
         progressBar = view.findViewById(R.id.progressBar)
@@ -68,6 +62,8 @@ class HomeFragment : Fragment() {
         trainingAdapter = TrainingAdapter()
 
         buttonAddItem = view.findViewById(R.id.floatingActionButton)
+
+        rv_training = view.findViewById(R.id.recyclerview)
     }
 
     fun setObservers() {
@@ -92,20 +88,21 @@ class HomeFragment : Fragment() {
                 }
             }
 
-
-
-
             viewModel.trainingListLD.observe(viewLifecycleOwner) {
                 trainingAdapter.trainingList = it
                 rv_training.adapter = trainingAdapter
             }
 
-
         }
-
-
     }
 
+
+    private fun setupOnClickListener () {
+        buttonAddItem.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_addTrainingFragment)
+
+        }
+    }
 
     private fun setupSwipeListener(rvList: RecyclerView) {
         val callback = object : ItemTouchHelper.SimpleCallback(
@@ -140,13 +137,13 @@ class HomeFragment : Fragment() {
 
     private fun setupLongClickListener() {
         trainingAdapter.onItemLongClickListener = {
-            viewModelEdit.setCurrentTrainingForEdit(it)
-            val yfc = EditTrainingFragment();
-            val bundle = Bundle();
-            bundle.putInt("tag", it.id);
-            yfc.setArguments(bundle);
-            val fragmentManager = getFragmentManager();
-            fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, yfc)?.commit();
+         viewModelEdit.setCurrentTrainingForEdit(it)
+            val yfc = EditTrainingFragment()
+            val bundle = Bundle()
+            bundle.putInt("tag", it.id)
+            yfc.setArguments(bundle)
+            val fragmentManager = getFragmentManager()
+            fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, yfc)?.commit()
         }
     }
 

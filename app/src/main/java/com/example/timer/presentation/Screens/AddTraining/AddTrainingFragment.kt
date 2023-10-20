@@ -29,6 +29,8 @@ class AddTrainingFragment : Fragment() {
 
     lateinit var etSets: EditText
 
+    lateinit var buttonAdd: Button
+
     private val viewModel: AddTrainingViewModel by activityViewModels()
 
 
@@ -44,7 +46,21 @@ class AddTrainingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val buttonAdd = view.findViewById<Button>(R.id.AddBtn)
+        initialization(view)
+
+        setupClickListener()
+
+        textChangedListener(etPreparationMin)
+        textChangedListener(etPreparationSec)
+        textChangedListener(etTrainingMin)
+        textChangedListener(etTrainingSec)
+        textChangedListener(etRestMin)
+        textChangedListener(etRestSec)
+
+    }
+
+    fun initialization (view: View) {
+        buttonAdd = view.findViewById<Button>(R.id.AddBtn)
 
         etName = view.findViewById(R.id.EtName)
 
@@ -58,15 +74,9 @@ class AddTrainingFragment : Fragment() {
         etRestMin = view.findViewById(R.id.etRestMin)
 
         etSets = view.findViewById(R.id.EtSets)
+    }
 
-        textChangedListener(etPreparationMin)
-        textChangedListener(etPreparationSec)
-        textChangedListener(etTrainingMin)
-        textChangedListener(etTrainingSec)
-        textChangedListener(etRestMin)
-        textChangedListener(etRestSec)
-
-
+    fun setupClickListener () {
         buttonAdd.setOnClickListener {
 
             var preparationMin = 0
@@ -108,7 +118,6 @@ class AddTrainingFragment : Fragment() {
             findNavController().navigate(R.id.action_addTrainingFragment_to_homeFragment)
 
         }
-
     }
 
     fun textChangedListener (editText: EditText) {

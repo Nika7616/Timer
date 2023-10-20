@@ -29,6 +29,8 @@ class EditTrainingFragment : Fragment() {
 
     lateinit var etSetsEdit: EditText
 
+    lateinit var buttonEdit: Button
+
     private val viewModel: EditTrainingViewModel by activityViewModels()
     var currentId: Int = 0
 
@@ -42,20 +44,49 @@ class EditTrainingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initialization(view)
+        observes()
 
-        val bundle = arguments
-        if (bundle != null) {
-            val recieveInfo = bundle.getInt("tag")
-            Log.e("my", "------------------- $recieveInfo")
-        }
+        textChangedListener(etPreparationMinEdit)
+        textChangedListener(etPreparationSecEdit)
+        textChangedListener(etTrainingMinEdit)
+        textChangedListener(etTrainingSecEdit)
+        textChangedListener(etRestMinEdit)
+        textChangedListener(etRestSecEdit)
 
-        val buttonEdit = view.findViewById<Button>(R.id.EditBtn)
+      setupClickListener()
 
+
+    }
+
+    fun initialization(view: View) {
         etNameEdit = view.findViewById(R.id.EtNameEdit)
 
-         initialization(view)
+        etPreparationSecEdit = view.findViewById(R.id.etPreparationSecEdit)
+        etTrainingSecEdit = view.findViewById(R.id.EtTrainingSecEdit)
+        etRestSecEdit = view.findViewById(R.id.etRestSecEdit)
 
+
+        etPreparationMinEdit = view.findViewById(R.id.etPreparationMinEdit)
+        etTrainingMinEdit = view.findViewById(R.id.etTrainingMinEdit)
+        etRestMinEdit = view.findViewById(R.id.etRestMinEdit)
+
+        etSetsEdit = view.findViewById(R.id.EtSetsEdit)
+
+        buttonEdit = view.findViewById<Button>(R.id.EditBtn)
+
+        etNameEdit = view.findViewById(R.id.EtNameEdit)
+    }
+
+    fun observes() {
         viewModel.currentTrainingforEditLD.observe(viewLifecycleOwner) {
+
+            val bundle = arguments
+            if (bundle != null) {
+                val recieveInfo = bundle.getInt("tag")
+                Log.e("my", "------------------- $recieveInfo")
+            }
+
             currentId = it.id
             etNameEdit.setText(it.name)
 
@@ -64,6 +95,7 @@ class EditTrainingFragment : Fragment() {
             val timeTraining = viewModel.millToMinSek(it.training)
 
             val timeRest = viewModel.millToMinSek(it.rest)
+
 
             etPreparationMinEdit.setText(timePrep.min.toString())
             etPreparationSecEdit.setText(timePrep.sec.toString())
@@ -76,14 +108,9 @@ class EditTrainingFragment : Fragment() {
 
             etSetsEdit.setText(it.sets.toString())
         }
+    }
 
-        textChangedListener(etPreparationMinEdit)
-        textChangedListener(etPreparationSecEdit)
-        textChangedListener(etTrainingMinEdit)
-        textChangedListener(etTrainingSecEdit)
-        textChangedListener(etRestMinEdit)
-        textChangedListener(etRestSecEdit)
-
+    fun setupClickListener () {
         buttonEdit.setOnClickListener {
             var preparationMin = 0
             var preparationSec = 0
@@ -125,25 +152,10 @@ class EditTrainingFragment : Fragment() {
             findNavController().navigate(R.id.action_editTrainingFragment_to_homeFragment)
 
         }
-
-
-    }
-    fun initialization(view: View) {
-        etNameEdit = view.findViewById(R.id.EtNameEdit)
-
-        etPreparationSecEdit = view.findViewById(R.id.etPreparationSecEdit)
-        etTrainingSecEdit = view.findViewById(R.id.EtTrainingSecEdit)
-        etRestSecEdit = view.findViewById(R.id.etRestSecEdit)
-
-
-        etPreparationMinEdit = view.findViewById(R.id.etPreparationMinEdit)
-        etTrainingMinEdit = view.findViewById(R.id.etTrainingMinEdit)
-        etRestMinEdit = view.findViewById(R.id.etRestMinEdit)
-
-        etSetsEdit = view.findViewById(R.id.EtSetsEdit)
     }
 
-    fun textChangedListener (editText: EditText) {
+
+    fun textChangedListener(editText: EditText) {
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 

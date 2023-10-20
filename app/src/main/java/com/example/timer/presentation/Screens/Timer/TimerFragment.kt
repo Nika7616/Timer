@@ -34,6 +34,13 @@ class timerFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        initialization(view)
+        observes()
+
+    }
+
+    fun initialization (view: View) {
         timeTv = view.findViewById(R.id.timeTv)
         typeTrainingTv = view.findViewById(R.id.typeTrainingTv)
         setsTv = view.findViewById(R.id.setsTv)
@@ -43,8 +50,9 @@ class timerFragment : Fragment() {
 
 
         progressBar = view.findViewById(R.id.progressBar2)
+    }
 
-
+    fun observes () {
         viewModel.progressMaxLD.observe(viewLifecycleOwner) {
             progressBar.max = it
             progressMax = it
@@ -108,4 +116,5 @@ class timerFragment : Fragment() {
 
         }
     }
+
 }
